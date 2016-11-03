@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+File.open("db/randyfacts.txt").each_line do |line|
+  Fact.find_or_create_by!(text: line.strip)
+end
